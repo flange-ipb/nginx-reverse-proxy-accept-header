@@ -1,0 +1,23 @@
+services:
+  proxy:
+    image: nginx-test
+    build: ./nginx
+    ports:
+      - "80:80"
+    networks:
+      - mynetwork
+
+  apache:
+    image: apache-test
+    build: ./apache
+    networks:
+      - mynetwork
+
+  django:
+    image: django-test
+    build: ./django
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
